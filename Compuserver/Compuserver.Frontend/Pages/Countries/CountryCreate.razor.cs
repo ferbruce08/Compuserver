@@ -2,7 +2,7 @@ using Compuserver.Frontend.Pages.Countries;
 using Compuserver.Shared.Entites;
 using Compuserver.Shared.Resources;
 using CurrieTechnologies.Razor.SweetAlert2;
-using Fantasy.Frontend.Repositories;
+using Compuserver.Frontend.Repositories;
 using Microsoft.AspNetCore.Components;
 using Microsoft.Extensions.Localization;
 

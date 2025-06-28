@@ -1,4 +1,4 @@
-﻿namespace Fantasy.Frontend.Repositories;
+﻿namespace Compuserver.Frontend.Repositories;
 
 public interface IRepository
 {

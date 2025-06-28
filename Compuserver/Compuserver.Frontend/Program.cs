@@ -1,6 +1,6 @@
 using Compuserver.Frontend;
 using CurrieTechnologies.Razor.SweetAlert2;
-using Fantasy.Frontend.Repositories;
+using Compuserver.Frontend.Repositories;
 using Microsoft.AspNetCore.Components.Web;
 using Microsoft.AspNetCore.Components.WebAssembly.Hosting;
 
