@@ -359,3 +359,33 @@ body {
         text-align: center;
     }
 }
+
+/* Oculta el menú en móvil si está colapsado */
+/*.menu-collapsed {
+    display: none;
+}*/
+
+/* Muestra el menú cuando está expandido */
+/*.menu-expanded {
+    display: block;
+}*/
+
+/* Asegura que el nav esté centrado en móviles */
+/*@media (min-width: 768px) {
+    .navbar-collapse {
+        width: 100%;
+    }
+
+    .navbar-nav {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .navbar-toggler {
+        margin-left: auto;
+    }
+
+    .navbar-brand {
+        margin-right: auto;
+    }
+}*/
