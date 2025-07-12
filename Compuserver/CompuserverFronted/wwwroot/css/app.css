@@ -360,6 +360,38 @@ body {
     }
 }
 
+.servicio-card {
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    border-radius: 1rem;
+    overflow: hidden;
+}
+
+    .servicio-card:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+    }
+
+.servicio-img {
+    height: 200px;
+    object-fit: cover;
+    border-bottom: 2px solid #ffc107;
+}
+
+.servicio-title {
+    font-weight: 700;
+    color: #343a40;
+}
+
+.servicio-btn {
+    background-color: #ffc107;
+    border: none;
+    transition: background-color 0.3s ease;
+}
+
+    .servicio-btn:hover {
+        background-color: #e0a800;
+    }
+
 /* Oculta el menú en móvil si está colapsado */
 /*.menu-collapsed {
     display: none;
