@@ -3,48 +3,195 @@
 <PageTitle>Compuserver-Inicio</PageTitle>
 
 <h1>Hello, world!</h1>
-
 Welcome to your new app.
 
+<!-- Carrusel Personalizado Mejorado -->
+<div class="custom-carousel" @onmouseover="PauseAutoplay" @onmouseout="ResumeAutoplay">
+    @foreach (var image in Images)
+    {
+        <div class="carousel-slide @(currentIndex == Images.IndexOf(image) ? "active" : "")">
+            <img src="@image.Url" alt="@image.Description" />
+            <div class="caption">@image.Description</div>
+        </div>
+    }
+
+    <!-- Botones de navegación -->
+    <button class="prev-btn" @onclick="PrevSlide">&#10094;</button>
+    <button class="next-btn" @onclick="NextSlide">&#10095;</button>
+
+    <!-- Indicadores -->
+    <div class="carousel-indicators">
+        @for (int i = 0; i < Images.Count; i++)
+        {
+            <span class="indicator @(currentIndex == i ? "active" : "")" @onclick="() => GoToSlide(i)"></span>
+        }
+    </div>
+</div>
+
+<h2 class="my-5 fw-bold text-primary">Nuestros Servicios</h2>
+
+<div class="container">
+    <div class="row row-cols-1 row-cols-md-3 g-4">
+        <!-- Tarjeta 1 -->
+        <div class="col">
+            <div class="card servicio-card h-100 shadow-sm">
+                <img src="images/servicio1.jpg" class="card-img-top servicio-img" alt="Servicio 1">
+                <div class="card-body">
+                    <h5 class="card-title servicio-title">Desarrollo Web</h5>
+                    <p class="card-text">Creamos sitios web responsivos y funcionales adaptados a tus necesidades.</p>
+                    <a href="/contacto" class="btn servicio-btn mt-3">Más información</a>
+                </div>
+            </div>
+        </div>
+
+        <!-- Tarjeta 2 -->
+        <div class="col">
+            <div class="card servicio-card h-100 shadow-sm">
+                <img src="images/servicio2.jpg" class="card-img-top servicio-img" alt="Servicio 2">
+                <div class="card-body">
+                    <h5 class="card-title servicio-title">Soporte Técnico</h5>
+                    <p class="card-text">Soluciones rápidas y efectivas para problemas técnicos de hardware y software.</p>
+                    <a href="/contacto" class="btn servicio-btn mt-3">Más información</a>
+                </div>
+            </div>
+        </div>
+
+        <!-- Tarjeta 3 -->
+        <div class="col">
+            <div class="card servicio-card h-100 shadow-sm">
+                <img src="images/servicio3.jpg" class="card-img-top servicio-img" alt="Servicio 3">
+                <div class="card-body">
+                    <h5 class="card-title servicio-title">Consultoría IT</h5>
+                    <p class="card-text">Asesoría especializada para optimizar los recursos tecnológicos de tu empresa.</p>
+                    <a href="/contacto" class="btn servicio-btn mt-3">Más información</a>
+                </div>
+            </div>
+        </div>
+
+        <!-- Tarjeta 1 -->
+        <div class="col">
+            <div class="card servicio-card h-100 shadow-sm">
+                <img src="images/servicio1.jpg" class="card-img-top servicio-img" alt="Servicio 1">
+                <div class="card-body">
+                    <h5 class="card-title servicio-title">Desarrollo Web</h5>
+                    <p class="card-text">Creamos sitios web responsivos y funcionales adaptados a tus necesidades.</p>
+                    <a href="/contacto" class="btn servicio-btn mt-3">Más información</a>
+                </div>
+            </div>
+        </div>
+
+        <!-- Tarjeta 2 -->
+        <div class="col">
+            <div class="card servicio-card h-100 shadow-sm">
+                <img src="images/servicio2.jpg" class="card-img-top servicio-img" alt="Servicio 2">
+                <div class="card-body">
+                    <h5 class="card-title servicio-title">Soporte Técnico</h5>
+                    <p class="card-text">Soluciones rápidas y efectivas para problemas técnicos de hardware y software.</p>
+                    <a href="/contacto" class="btn servicio-btn mt-3">Más información</a>
+                </div>
+            </div>
+        </div>
+
+        <!-- Tarjeta 3 -->
+        <div class="col">
+            <div class="card servicio-card h-100 shadow-sm">
+                <img src="images/servicio3.jpg" class="card-img-top servicio-img" alt="Servicio 3">
+                <div class="card-body">
+                    <h5 class="card-title servicio-title">Consultoría IT</h5>
+                    <p class="card-text">Asesoría especializada para optimizar los recursos tecnológicos de tu empresa.</p>
+                    <a href="/contacto" class="btn servicio-btn mt-3">Más información</a>
+                </div>
+            </div>
+        </div>
+
+
+    </div>
+</div>
 
-<p>leweki welk vqkv qwk vqkv qekf neqk j jw fjqe fjqnfqueifneiuqjbfnuwjqfbqwjbf wjqb fqj bfjeq fjfb efkjjhhgfasdfggghhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhh</p>
-<p>leweki welk vqkv qwk vqkv qekf neqk j jw fjqe fjqnfqueifneiuqjbfnuwjqfbqwjbf wjqb fqj bfjeq fjfb ef</p>
-<p>leweki welk vqkv qwk vqkv qekf neqk j jw fjqe fjqnfqueifneiuqjbfnuwjqfbqwjbf wjqb fqj bfjeq fjfb ef</p>
-<p>leweki welk vqkv qwk vqkv qekf neqk j jw fjqe fjqnfqueifneiuqjbfnuwjqfbqwjbf wjqb fqj bfjeq fjfb ef</p>
-<p>leweki welk vqkv qwk vqkv qekf neqk j jw fjqe fjqnfqueifneiuqjbfnuwjqfbqwjbf wjqb fqj bfjeq fjfb ef</p>
-<p>leweki welk vqkv qwk vqkv qekf neqk j jw fjqe fjqnfqueifneiuqjbfnuwjqfbqwjbf wjqb fqj bfjeq fjfb ef</p>
-<p>leweki welk vqkv qwk vqkv qekf neqk j jw fjqe fjqnfqueifneiuqjbfnuwjqfbqwjbf wjqb fqj bfjeq fjfb ef</p>
-<p>leweki welk vqkv qwk vqkv qekf neqk j jw fjqe fjqnfqueifneiuqjbfnuwjqfbqwjbf wjqb fqj bfjeq fjfb ef</p>
-<p>leweki welk vqkv qwk vqkv qekf neqk j jw fjqe fjqnfqueifneiuqjbfnuwjqfbqwjbf wjqb fqj bfjeq fjfb ef</p>
-<p>leweki welk vqkv qwk vqkv qekf neqk j jw fjqe fjqnfqueifneiuqjbfnuwjqfbqwjbf wjqb fqj bfjeq fjfb ef</p>
-<p>leweki welk vqkv qwk vqkv qekf neqk j jw fjqe fjqnfqueifneiuqjbfnuwjqfbqwjbf wjqb fqj bfjeq fjfb ef</p>
-<p>leweki welk vqkv qwk vqkv qekf neqk j jw fjqe fjqnfqueifneiuqjbfnuwjqfbqwjbf wjqb fqj bfjeq fjfb ef</p>
-<p>leweki welk vqkv qwk vqkv qekf neqk j jw fjqe fjqnfqueifneiuqjbfnuwjqfbqwjbf wjqb fqj bfjeq fjfb ef</p>
+<h3>Productos</h3>
+<p>Explora nuestros productos destacados y soluciones innovadoras.</p>
 
-<p>leweki welk vqkv qwk vqkv qekf neqk j jw fjqe fjqnfqueifneiuqjbfnuwjqfbqwjbf wjqb fqj bfjeq fjfb ef</p>
-<p>leweki welk vqkv qwk vqkv qekf neqk j jw fjqe fjqnfqueifneiuqjbfnuwjqfbqwjbf wjqb fqj bfjeq fjfb ef</p>
-<p>leweki welk vqkv qwk vqkv qekf neqk j jw fjqe fjqnfqueifneiuqjbfnuwjqfbqwjbf wjqb fqj bfjeq fjfb ef</p>
-<p>leweki welk vqkv qwk vqkv qekf neqk j jw fjqe fjqnfqueifneiuqjbfnuwjqfbqwjbf wjqb fqj bfjeq fjfb ef</p>
+<!-- Sección de Marcas -->
+<section class="brands-section">
+    <h2>Nuestras Marcas</h2>
+    <div class="brands-container">
+        @foreach (var brand in Brands)
+        {
+            <div class="brand-item">
+                <img src="@brand.Logo" alt="@brand.Name" title="@brand.Name" />
+            </div>
+        }
+    </div>
+</section> 
 
-<p>leweki welk vqkv qwk vqkv qekf neqk j jw fjqe fjqnfqueifneiuqjbfnuwjqfbqwjbf wjqb fqj bfjeq fjfb ef</p>
-<p>leweki welk vqkv qwk vqkv qekf neqk j jw fjqe fjqnfqueifneiuqjbfnuwjqfbqwjbf wjqb fqj bfjeq fjfb ef</p>
-<p>leweki welk vqkv qwk vqkv qekf neqk j jw fjqe fjqnfqueifneiuqjbfnuwjqfbqwjbf wjqb fqj bfjeq fjfb ef</p>
-<p>leweki welk vqkv qwk vqkv qekf neqk j jw fjqe fjqnfqueifneiuqjbfnuwjqfbqwjbf wjqb fqj bfjeq fjfb ef</p>
-<p>leweki welk vqkv qwk vqkv qekf neqk j jw fjqe fjqnfqueifneiuqjbfnuwjqfbqwjbf wjqb fqj bfjeq fjfb ef</p>
-<p>leweki welk vqkv qwk vqkv qekf neqk j jw fjqe fjqnfqueifneiuqjbfnuwjqfbqwjbf wjqb fqj bfjeq fjfb ef</p>
-<p>leweki welk vqkv qwk vqkv qekf neqk j jw fjqe fjqnfqueifneiuqjbfnuwjqfbqwjbf wjqb fqj bfjeq fjfb ef</p>
+@code {
+    private int currentIndex = 0;
+    private System.Threading.Timer? timer;
+    private bool isPaused = false;
 
+    private List<(string Url, string Description)> Images = new()
+    {
+        ("images/slide1.jpg", "Primer Slide con efecto fade"),
+        ("images/slide2.jpg", "Segundo Slide transiciones suaves"),
+        ("images/slide3.jpg", "Tercer Slide looping continuo")
+    };
 
+    protected override void OnInitialized()
+    {
+        StartAutoplay();
+    }
 
-<p>leweki welk vqkv qwk vqkv qekf neqk j jw fjqe fjqnfqueifneiuqjbfnuwjqfbqwjbf wjqb fqj bfjeq fjfb ef</p>
-<p>leweki welk vqkv qwk vqkv qekf neqk j jw fjqe fjqnfqueifneiuqjbfnuwjqfbqwjbf wjqb fqj bfjeq fjfb ef</p>
+    private void StartAutoplay()
+    {
+        timer = new System.Threading.Timer(_ =>
+        {
+            if (!isPaused)
+            {
+                InvokeAsync(() =>
+                {
+                    NextSlide();
+                    StateHasChanged();
+                });
+            }
+        }, null, 5000, 5000);
+    }
 
-<p>leweki welk vqkv qwk vqkv qekf neqk j jw fjqe fjqnfqueifneiuqjbfnuwjqfbqwjbf wjqb fqj bfjeq fjfb ef</p>
+    private void NextSlide()
+    {
+        currentIndex++;
+        if (currentIndex >= Images.Count)
+        {
+            // En lugar de regresar, vuelve al primer slide pero sigue el mismo efecto
+            currentIndex = 0;
+        }
+    }
 
+    private void PrevSlide()
+    {
+        currentIndex--;
+        if (currentIndex < 0)
+        {
+            currentIndex = Images.Count - 1;
+        }
+    }
 
+    private void GoToSlide(int index) => currentIndex = index;
 
+    private void PauseAutoplay() => isPaused = true;
+    private void ResumeAutoplay() => isPaused = false;
 
+    public void Dispose() => timer?.Dispose();
 
+    private List<(string Name, string Logo)> Brands = new()
+    {
+        ("LG", "images/marcas/lg.png"),
+        ("Lenovo", "images/marcas/lenovo.png"),
+        ("TP-LINK", "images/marcas/tplink.png"),
+        ("ASUS", "images/marcas/asus.png"),
+        ("EPSON", "images/marcas/epson.png"),
+        ("ADATA", "images/marcas/adata.png"),
+    };
+}
 
 
 
@@ -114,4 +261,10 @@ Welcome to your new app.
 
 
 
-<p>leweki welk vqkv qwk vqkv qekf neqk j jw fjqe fjqnfqueifneiuqjbfnuwjqfbqwjbf wjqb fqj bfjeq fjfb ef</p>
+
+
+
+
+
+
+

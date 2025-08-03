@@ -6,6 +6,74 @@
     <iframe style="width: 100%; height: 400px;" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d416.2910835869707!2d-71.87845913033146!3d6.956060071551863!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8e6f33a2002d689b%3A0x7db9609c98a39f8!2sCOMPUSERVER%20SAS!5e0!3m2!1ses!2sco!4v1743738966599!5m2!1ses!2sco" frameborder="0" allowfullscreen=""></iframe>
 </div>
 
+<!-- Sección de Contacto -->
+<section class="contact-section">
+    <h2>Contáctanos</h2>
+    <EditForm Model="@contactForm" OnValidSubmit="HandleValidSubmit">
+        <DataAnnotationsValidator />
+        <ValidationSummary />
+
+        <div class="form-group">
+            <label>Nombre:</label>
+            <InputText @bind-Value="contactForm.Nombre" class="form-control" />
+            <ValidationMessage For="@(() => contactForm.Nombre)" />
+        </div>
+
+        <div class="form-group">
+            <label>Email:</label>
+            <InputText @bind-Value="contactForm.Email" class="form-control" />
+            <ValidationMessage For="@(() => contactForm.Email)" />
+        </div>
+
+        <div class="form-group">
+            <label>Teléfono:</label>
+            <InputText @bind-Value="contactForm.Telefono" class="form-control" />
+        </div>
+
+        <div class="form-group">
+            <label>Mensaje:</label>
+            <InputTextArea @bind-Value="contactForm.Mensaje" class="form-control" rows="4" />
+            <ValidationMessage For="@(() => contactForm.Mensaje)" />
+        </div>
+
+        <button type="submit" class="btn-enviar">Enviar</button>
+    </EditForm>
+
+    @if (!string.IsNullOrEmpty(successMessage))
+    {
+        <div class="alert-success">@successMessage</div>
+    }
+</section>
+
 @code {
+    private ContactFormModel contactForm = new();
+    private string? successMessage;
+
+    private void HandleValidSubmit()
+    {
+        // Aquí podrías enviar los datos por correo, API o guardarlos en DB
+        successMessage = "✅ Tu mensaje se envió correctamente. ¡Te contactaremos pronto!";
+        contactForm = new(); // limpiar formulario
+    }
+
+    using System.ComponentModel.DataAnnotations;
+
+public class ContactFormModel
+{
+    [Required(ErrorMessage = "El nombre es obligatorio")]
+    public string Nombre { get; set; }
+
+    [Required(ErrorMessage = "El email es obligatorio")]
+    [EmailAddress(ErrorMessage = "Formato de correo inválido")]
+    public string Email { get; set; }
+
+    public string Telefono { get; set; }
+
+    [Required(ErrorMessage = "El mensaje es obligatorio")]
+    public string Mensaje { get; set; }
+}
+
 
 }
+
+
