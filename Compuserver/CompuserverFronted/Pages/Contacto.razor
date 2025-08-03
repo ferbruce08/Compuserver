@@ -1,4 +1,5 @@
 ﻿@page "/contacto"
+@using System.ComponentModel.DataAnnotations
 
 <h3>Contacto</h3>
 
@@ -55,8 +56,6 @@
         successMessage = "✅ Tu mensaje se envió correctamente. ¡Te contactaremos pronto!";
         contactForm = new(); // limpiar formulario
     }
-
-    using System.ComponentModel.DataAnnotations;
 
 public class ContactFormModel
 {
