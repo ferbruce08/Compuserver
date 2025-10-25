@@ -1,8 +1,85 @@
 ﻿@page "/productos"
 
-<h3>Productos</h3>
-<p>Explora nuestros productos destacados y soluciones innovadoras.</p>
+@* ---------------------------------------------
+   SECCIÓN "PRODUCTOS" - COMPUSERVER
+   Autor: Bruce (Propietario del proyecto)
+   Framework: Blazor (.NET)
+   Descripción: Catálogo general de productos tecnológicos
+   y artículos de papelería ofrecidos por Compuserver.
+--------------------------------------------- *@
+
+<section class="products-section py-5 bg-light">
+    <div class="container">
+        <h2 class="text-center mb-4 text-primary fw-bold">Nuestros Productos</h2>
+        <p class="lead text-center mb-5">
+            En <strong>COMPUSERVER</strong> encontrarás una amplia variedad de productos tecnológicos y artículos de papelería.
+            Desde equipos y accesorios de última generación hasta los útiles esenciales para tu oficina o estudio.
+        </p>
+
+        <div class="row g-4">
+            @foreach (var p in productos)
+            {
+                <div class="col-md-3 col-sm-6">
+                    <div class="card h-100 shadow-sm border-0 text-center p-3">
+                        <img src="@p.Imagen" alt="@p.Nombre"
+                             class="card-img-top mx-auto mb-3 rounded"
+                             style="width: 150px; height: 150px; object-fit: cover;">
+                        <div class="card-body">
+                            <i class="@p.Icono text-primary fs-3 mb-2"></i>
+                            <h6 class="fw-bold">@p.Nombre</h6>
+                            <p class="text-muted small mb-1">@p.Categoria</p>
+                            <p class="small">@p.Descripcion</p>
+                        </div>
+                    </div>
+                </div>
+            }
+        </div>
+    </div>
+</section>
 
 @code {
+    private record Producto(string Nombre, string Categoria, string Descripcion, string Imagen, string Icono);
 
+    private List<Producto> productos = new()
+    {
+        // ---- Productos tecnológicos ----
+        new Producto("Impresora HP DeskJet 4155e", "Tecnología",
+            "Impresora multifuncional con conexión inalámbrica y compatibilidad con HP Smart.",
+            "https://http2.mlstatic.com/D_Q_NP_699548-MLU69700171408_052023-O.webp", "bi-printer"),
+        new Producto("Portátil Lenovo IdeaPad 3", "Tecnología",
+            "Laptop de alto rendimiento ideal para estudiantes y profesionales, pantalla Full HD de 15.6”.",
+            "https://http2.mlstatic.com/D_NQ_NP_859006-MLU77492562435_072024-O.webp", "bi-laptop"),
+        new Producto("Mouse Logitech M170", "Tecnología",
+            "Mouse inalámbrico con diseño ergonómico, conexión estable y batería de larga duración.",
+            "https://elpuntodelaimpresora.com/wp-content/uploads/2021/03/logitechm170.jpg", "bi-mouse"),
+        new Producto("Teclado Redragon K552 Kumara", "Tecnología",
+            "Teclado mecánico retroiluminado, ideal para trabajo y gaming.",
+            "https://www.mipcparquecentral.com/cdn/shop/files/imagen-teclado_mecanico_kumara_k552krsp_rainbow.jpg?v=1734534979", "bi-keyboard"),
+        new Producto("Memoria USB Kingston 64GB", "Tecnología",
+            "Memoria portátil de alta velocidad con carcasa metálica resistente.",
+            "https://comercialpapelera.com.co/tienda/7953-large_default/memoria-usb-kingston-64-gb-dt100g3.jpg", "bi-usb-drive"),
+        new Producto("Disco Duro Externo Seagate 1TB", "Tecnología",
+            "Almacenamiento externo portátil compatible con Windows y macOS.",
+            "https://http2.mlstatic.com/D_NQ_NP_924971-MLU72580214714_112023-O.webp", "bi-hdd"),
+        new Producto("Funda para Portátil 15.6”", "Accesorios",
+            "Protección acolchada y resistente al agua para portátiles de hasta 15.6 pulgadas.",
+            "https://www.caselogic.com/-/p/1isaN9o7qrbviNMu5rYPTmN9UJaMXKeEJtS_wj9Qsqk/rs:fit/h:480/cb:1.6/w:480/plain/approved/std.lang.all/23/00/1452300.jpg", "bi-bag"),
+        new Producto("Protector de Teclado Universal", "Accesorios",
+            "Cubierta de silicona flexible, evita el polvo y líquidos sobre tu teclado.",
+            "https://peruimporta.com/wp-content/uploads/2022/12/prot14.jpg", "bi-shield-lock"),
+
+        // ---- Productos de papelería ----
+        new Producto("Bolígrafo (varias marcas)", "Papelería",
+            "Escritura suave y precisa, disponible en diferentes colores y presentaciones.",
+            "https://www.regalos-empresa.es/34054-large_default/boligrafos-publicitarios-con-varias-funciones-personalizados-con-tu-marca.jpg", "bi-pencil"),
+        new Producto("Lápiz de Grafito #2", "Papelería",
+            "Ideal para dibujo técnico y escritura, con mina resistente.",
+            "https://panafargo.com/wp-content/uploads/2024/08/Lapiz-De-Grafito-Norma-Triangulares-2HB-Portada.jpg", "bi-pencil-square"),
+        new Producto("Cuaderno Argollado 100 hojas", "Papelería",
+            "Diseños variados, papel de alta calidad y tapas resistentes.",
+            "https://static.wixstatic.com/media/45ce85_d24a0ec9485d4c34aa1792253bf33e81~mv2.webp/v1/fill/w_480,h_480,al_c,q_80,usm_0.66_1.00_0.01,enc_avif,quality_auto/45ce85_d24a0ec9485d4c34aa1792253bf33e81~mv2.webp", "bi-journal"),
+        new Producto("Resaltadores Fluorescentes", "Papelería",
+            "Set de 6 colores brillantes, tinta duradera y punta biselada.",
+            "https://www.grafitos.com.co/wp-content/uploads/2023/02/Resaltadores-Neon-600x600.jpg", "bi-highlighter")
+    };
 }

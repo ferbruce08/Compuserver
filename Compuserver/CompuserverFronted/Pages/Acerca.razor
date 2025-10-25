@@ -1,9 +1,113 @@
 ﻿@page "/acerca"
 
-<h3 class="text-primary">Acerca de COMPUSERVER</h3>
-<p>Somos una empresa dedicada a soluciones tecnológicas...</p>
+@* ---------------------------------------------
+   SECCIÓN "ACERCA DE" - COMPUSERVER
+   Autor: Bruce (Propietario del proyecto)
+   Framework: Blazor (.NET)
+   Descripción: Página informativa sobre el negocio,
+   equipo y servicios ofrecidos por Compuserver.
+--------------------------------------------- *@
 
+<section class="about-section py-5 bg-light">
+    <div class="container">
+        <h2 class="text-center mb-4 text-primary fw-bold">Acerca de Nosotros</h2>
+
+        <p class="lead text-center mb-5">
+            En <strong>COMPUSERVER</strong> trabajamos cada día para ofrecer soluciones tecnológicas confiables,
+            rápidas y seguras a nuestros clientes. Somos una empresa local comprometida con brindar servicios
+            integrales en el área de soporte técnico, desarrollo web y gestión de transacciones.
+        </p>
+
+        <div class="row align-items-center mb-5">
+            <div class="col-md-6">
+                <img src="images/slide2.jpg" alt="Oficina Compuserver" class="img-fluid rounded shadow">
+            </div>
+            <div class="col-md-6">
+                <h4 class="text-primary fw-semibold">Nuestra Misión</h4>
+                <p>
+                    Ofrecer a nuestros clientes un servicio eficiente, transparente y cercano,
+                    combinando la tecnología con la atención personalizada. Buscamos ser un aliado
+                    de confianza para personas y negocios que necesiten soluciones digitales,
+                    soporte técnico o facilidades de pago en un solo lugar.
+                </p>
+                <h4 class="text-primary fw-semibold mt-4">Nuestra Visión</h4>
+                <p>
+                    Ser reconocidos como una empresa líder en servicios tecnológicos y financieros
+                    en la región, impulsando el crecimiento digital y la innovación en cada uno de
+                    nuestros proyectos.
+                </p>
+            </div>
+        </div>
+
+        <h3 class="text-center text-primary fw-bold mb-4">Nuestro Equipo</h3>
+        <div class="row text-center">
+            @foreach (var persona in equipo)
+            {
+                <div class="col-md-4 mb-4">
+                    <div class="card border-0 shadow-sm p-3 h-100">
+                        <img src="@persona.Imagen"
+                             class="card-img-top rounded-circle mx-auto mb-3"
+                             alt="@persona.Nombre"
+                             style="width: 120px; height: 120px; object-fit: cover;">
+                        <div class="card-body">
+                            <h5 class="card-title fw-bold">@persona.Nombre</h5>
+                            <p class="text-muted mb-1">@persona.Cargo</p>
+                            <p class="small">@persona.Descripcion</p>
+                        </div>
+                    </div>
+                </div>
+            }
+        </div>
+
+        <section class="brands-section">
+            <h2>Nuestras Marcas</h2>
+            <div class="brands-container">
+                @foreach (var brand in Brands)
+                {
+                    <div class="brand-item">
+                        <img src="@brand.Logo" alt="@brand.Name" title="@brand.Name" />
+                    </div>
+                }
+            </div>
+        </section>
+    </div>
+</section>
 
 @code {
+    private record Empleado(string Nombre, string Cargo, string Descripcion, string Imagen, string Icono);
 
+    private List<Empleado> equipo = new()
+    {
+        new Empleado(
+            "Yordy",
+            "Técnico en Soporte",
+            "Especialista en mantenimiento de equipos, instalación de software y soluciones técnicas personalizadas.",
+            "https://images.unsplash.com/photo-1568602471122-7832951cc4c5?fm=jpg&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Nnx8cG9ydHJhaXQlMjBtYW58ZW58MHx8MHx8fDA%3D&ixlib=rb-4.1.0&q=60&w=3000",
+            "bi-tools"
+        ),
+        new Empleado(
+            "Álvaro",
+            "Ingeniero en Desarrollo Web",
+            "Encargado del diseño y desarrollo de sitios web profesionales, aplicaciones y soluciones digitales para nuestros clientes.",
+            "https://plus.unsplash.com/premium_photo-1682144187125-b55e638cf286?fm=jpg&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MXx8cG9ydHJhaXQlMjBtYW58ZW58MHx8MHx8fDA%3D&ixlib=rb-4.1.0&q=60&w=3000",
+            "bi-laptop"
+        ),
+        new Empleado(
+            "Brenda",
+            "Secretaria Administrativa",
+            "Responsable de la atención al cliente, coordinación de servicios y gestión de pagos y transacciones bancarias.",
+            "https://images.unsplash.com/photo-1544005313-94ddf0286df2?fm=jpg&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NHx8cG9ydHJhaXR8ZW58MHx8MHx8fDA%3D&ixlib=rb-4.1.0&q=60&w=3000",
+            "bi-person-vcard"
+        )
+    };
+
+    private List<(string Name, string Logo)> Brands = new()
+    {
+        ("LG", "images/marcas/lg.png"),
+        ("Lenovo", "images/marcas/lenovo.png"),
+        ("TP-LINK", "images/marcas/tplink.png"),
+        ("ASUS", "images/marcas/asus.png"),
+        ("EPSON", "images/marcas/epson.png"),
+        ("ADATA", "images/marcas/adata.png"),
+    };
 }

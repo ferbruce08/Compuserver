@@ -1,0 +1,6 @@
+@CompuserverBackend_HostAddress = http://localhost:5043
+
+GET {{CompuserverBackend_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###
